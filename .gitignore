@@ -1,0 +1,13 @@
+# .NET
+bin/
+obj/
+*.user
+.vs/
+
+# runtime demo data (auto-generisano)
+src/SecurityLab.Api/App_Data/
+src/SecurityLab.Api/wwwroot/uploads/
+
+# OS
+Thumbs.db
+.DS_Store

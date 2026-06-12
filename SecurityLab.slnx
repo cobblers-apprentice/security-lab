@@ -1,0 +1,5 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/SecurityLab.Api/SecurityLab.Api.csproj" />
+  </Folder>
+</Solution>

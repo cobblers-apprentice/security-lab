@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Security Lab - Demonstracija Web Napada</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+</head>
+<body class="bg-slate-100 text-slate-800 min-h-screen">
+
+  <header class="bg-slate-900 text-white">
+    <div class="max-w-6xl mx-auto px-6 py-5 flex items-center justify-between">
+      <div>
+        <h1 class="text-xl font-bold">🛡️ Security Lab</h1>
+        <p class="text-slate-300 text-sm">Demonstracija web napada, svaki napad ima ranjivu i bezbednu granu</p>
+      </div>
+      <a href="https://github.com" class="text-slate-400 text-sm hover:text-white">v1.0</a>
+    </div>
+  </header>
+
+  <main class="max-w-6xl mx-auto px-6 py-8">
+
+    <!-- Select lista napada -->
+    <section class="bg-white rounded-xl shadow-sm border border-slate-200 p-6 mb-6">
+      <label for="attackSelect" class="block text-sm font-semibold text-slate-700 mb-2">
+        Izaberi napad za demonstraciju
+      </label>
+      <select id="attackSelect"
+              class="w-full border border-slate-300 rounded-lg px-4 py-3 text-base focus:ring-2 focus:ring-slate-500 focus:outline-none">
+        <option value="">učitavanje...</option>
+      </select>
+      <p id="attackSummary" class="text-sm text-slate-500 mt-3"></p>
+    </section>
+
+    <!-- Panel napada -->
+    <section id="panel" class="hidden">
+      <div class="bg-white rounded-xl shadow-sm border border-slate-200 p-6 mb-6">
+        <div class="flex items-center gap-3 mb-3">
+          <span id="attackCategory" class="text-xs font-semibold uppercase tracking-wide px-2 py-1 rounded bg-slate-200 text-slate-700"></span>
+          <h2 id="attackTitle" class="text-lg font-bold"></h2>
+        </div>
+        <div id="attackIntro" class="prose prose-sm max-w-none text-slate-600 mb-5"></div>
+
+        <div id="controls" class="space-y-4"></div>
+
+        <div class="flex flex-wrap gap-3 mt-6">
+          <button id="runVulnerable"
+                  class="px-5 py-2.5 rounded-lg bg-red-600 text-white font-semibold hover:bg-red-700 transition">
+            ▶ Pokreni na RANJIVOJ grani
+          </button>
+          <button id="runSecure"
+                  class="px-5 py-2.5 rounded-lg bg-emerald-600 text-white font-semibold hover:bg-emerald-700 transition">
+            ▶ Pokreni na BEZBEDNOJ grani
+          </button>
+        </div>
+      </div>
+
+      <!-- Rezultat -->
+      <div id="resultBox" class="hidden bg-white rounded-xl shadow-sm border border-slate-200 overflow-hidden">
+        <div id="resultHeader" class="px-6 py-3 font-semibold text-white"></div>
+        <div class="p-6 space-y-4">
+          <div>
+            <div class="text-xs font-semibold text-slate-500 uppercase mb-1">Zahtev</div>
+            <pre id="resultRequest" class="bg-slate-900 text-slate-100 text-xs rounded-lg p-4 overflow-x-auto"></pre>
+          </div>
+          <div>
+            <div class="text-xs font-semibold text-slate-500 uppercase mb-1">Odgovor servera</div>
+            <pre id="resultResponse" class="bg-slate-900 text-emerald-200 text-xs rounded-lg p-4 overflow-x-auto"></pre>
+          </div>
+          <div id="resultExplain" class="text-sm"></div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="max-w-6xl mx-auto px-6 py-8 text-center text-xs text-slate-400">
+    Security Lab - edukativni projekat. Sve ranjivosti su namerne i izolovane za demonstraciju.
+  </footer>
+
+  <script src="/app.js"></script>
+</body>
+</html>
